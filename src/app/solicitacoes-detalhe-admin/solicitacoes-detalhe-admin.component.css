@@ -1,0 +1,132 @@
+
+section{
+  max-width: 1024px;
+  margin: auto;
+  margin-bottom: 10px;
+   margin-top: 120px; 
+  text-align: center;
+}
+
+mat-expansion-panel{
+  background-color: rgb(58, 63, 63);
+}
+
+.admin{
+  width: 51%;
+  float: right;
+  margin-bottom: 10px;
+}
+.admin-file{
+  width: 100%;
+  /* float: left; */
+  margin-bottom: 10px;
+}
+
+.request-client{
+  width: 51%;
+  float: left;
+  margin-bottom: 10px;
+  text-align: right;
+}
+
+.client{
+  width: 51%;
+  float: left;
+  margin-bottom: 10px;
+}
+
+.icon{
+  float: right;
+  color: #17a2b8;
+  font-size: 35px;
+}
+
+div{
+  width: 100%;
+}
+
+.text-input{
+  width: 100%;
+  padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+}
+.form-input{
+  width: 100%;
+}
+
+.send{
+  background-color: white;
+    color: #17a2b8;
+}
+
+.wrapper{
+  text-align: center;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  max-width: 1600px;
+  margin: auto;
+  margin-bottom: 10px;
+  /* margin-top: 120px; */
+}
+
+.box1 {
+  text-align: left;
+  padding-top: 05px;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+.box2 {
+  text-align: right;
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+mat-card-title{
+  word-wrap: break-word;
+  text-align: right;
+  font-weight: bold;
+}
+
+mat-divider{
+  padding-bottom: 10px;
+}
+
+h4{
+  padding-top: 10px;
+}
+
+.badge{
+  float: right;
+}
+
+.badge-icon{
+  color: white;
+  font-size: 60px;
+  padding-right: 50px;
+}
+
+.delete{
+  font-size: 20px;
+  float: right;
+}
+
+.finalizar{
+  background-color: red;
+  color: white;
+  margin-left: 0px !important;
+  padding-right: 25px;
+
+}
+
+.status-inativo{
+  border: 1px solid transparent;
+  padding: 08px 15px 08px 15px;
+  border-radius: 12px;
+  background-color: #CD5C5C;
+  color: white;
+}

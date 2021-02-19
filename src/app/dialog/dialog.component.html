@@ -1,0 +1,9 @@
+<mat-icon [class]="data.class" style="float: right;">{{data.icon}}</mat-icon>
+<h1 [class]="data.class" mat-dialog-title>{{data.text}}</h1>
+<div class="subText" mat-dialog-content>{{data.subText}}</div>
+
+<mat-divider></mat-divider>
+
+<div mat-dialog-actions>
+  <button style="float: right;" (click)="onNoClick()" mat-button mat-dialog-close>Ok</button>
+</div>

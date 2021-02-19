@@ -1,0 +1,37 @@
+<html>
+
+</html>
+
+<mat-card>
+
+  <body>
+    <form #f="ngForm" (ngSubmit)="login(f)" novalidate>
+      <mat-form-field appearance="outline">
+        <mat-label>CNPJ/CPF</mat-label>
+        <input type="number" name="cnpjCpf" ngModel matInput placeholder="Placeholder">
+        <mat-icon matSuffix>assignment_ind</mat-icon>
+        <mat-hint></mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input name="password" ngModel type="password" matInput placeholder="Placeholder">
+        <mat-icon matSuffix>vpn_key</mat-icon>
+        <mat-hint></mat-hint>
+      </mat-form-field>
+      <!-- <mat-checkbox style="float: left;">Manter-me conectado.</mat-checkbox> -->
+      <br>
+      <button class="button" mat-raised-button type="submit">Entrar</button>
+
+    </form>
+
+    <!-- <button class="button" mat-raised-button (click)="cadastrar()">Cadastro</button> -->
+
+  </body>
+</mat-card>
+<ngx-ui-loader fgsType="rectangle-bounce-party" bgsType="ball-spin-clockwise" logoUrl="../../assets/img/loader.png"
+  logoSize="150" [loaderId]="'admin-loader'">
+  <!-- </ion-card-content>
+  </ion-card> -->
+
+  <!-- <app-cadastro *ngIf="isCadastro" (result)="teste($event)"></app-cadastro> -->

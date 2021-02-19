@@ -1,0 +1,26 @@
+<span>Olá, {{data.name}}! O que deseja?</span>
+<mat-icon style="float: right; font-size: 30px; color: #17a2b8">list_alt</mat-icon>
+<mat-divider></mat-divider>
+
+<div mat-dialog-content>
+
+  <form [formGroup]="uploadForm" class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Nome do Arquivo</mat-label>
+      <input matInput placeholder="Nome do arquivo" value="" formControlName="nmDocumento">
+    </mat-form-field>
+
+  </form>
+
+
+
+  <div class="input-group">
+    <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
+      aria-label="Upload" (change)="onChange($event)" multiple>
+  </div>
+</div>
+<div>
+  <button mat-button (click)="onNoClick()">cancelar</button>
+  <button [disabled]="!uploadForm.valid" style="float: right;" mat-button [mat-dialog-close]="uploadForm.value"
+    cdkFocusInitial>Enviar</button>
+</div>

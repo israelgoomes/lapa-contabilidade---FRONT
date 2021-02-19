@@ -1,0 +1,61 @@
+<app-menu [isSimpleMenu]="true"></app-menu>
+
+<div class="example-button-container">
+  <button (click)="openDialog()" class="new-request" mat-fab color="primary"
+    aria-label="Example icon button with a delete icon">
+    <mat-icon class="add-icon">add</mat-icon>
+  </button>
+</div>
+
+<section [hidden]="dataSource.data.length == 0">
+  <mat-form-field id="filter">
+    <mat-label>Procurar</mat-label>
+    <input matInput (keyup)="applyFilter($event)">
+  </mat-form-field>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="titulo">
+        <th mat-header-cell *matHeaderCellDef> Título </th>
+        <td mat-cell *matCellDef="let element"> {{element?.titulo}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="cdSolicitacao">
+        <th mat-header-cell *matHeaderCellDef> Número </th>
+        <td mat-cell *matCellDef="let element"> {{element?.cdSolicitacao}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="detalhes">
+        <th mat-header-cell *matHeaderCellDef> Detalhes
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <mat-icon (click)="detalhes(element)" id="edit">question_answer</mat-icon>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="ativo">
+        <th mat-header-cell *matHeaderCellDef> Status
+        </th>
+        <td mat-cell *matCellDef="let element">
+
+          <span *ngIf="element.ativo=='S'" class="status-ativo">Ativo</span>
+          <span *ngIf="element.ativo=='N'" class="status-inativo">Finalizada</span>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+  </div>
+</section>
+
+<section>
+  <mat-card style="margin-top: 20px;" class="aviso" *ngIf="dataSource.data.length == 0">
+    Não existem solicitações, clique em "+" para criar uma nova solicitação.
+  </mat-card>
+</section>
+<ngx-ui-loader fgsType="rectangle-bounce-party" bgsType="ball-spin-clockwise" logoUrl="../../assets/img/loader.png"
+  logoSize="150" maxTime="200" [loaderId]="'solicitao-client-loader'">

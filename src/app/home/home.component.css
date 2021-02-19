@@ -2,8 +2,8 @@
   background-color: rgba(23,162,184, 0.8);
   width: 100%;
   color: white;
-  height: 70px;
-  font-family: "Times New Roman", Times, serif;
+  height: 80px;
+  /* font-family: "Times New Roman", Times, serif; */
   margin-bottom: 40px;
   position: fixed;
   padding-bottom: 20px;
@@ -12,11 +12,86 @@
   z-index: 1000;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
     0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    text-align: right;
 }
 
+.link{
+font-size: 18px;
+margin-right: 10px;
+padding-left: 05px;
+color: white;
+cursor: pointer;
+
+}
+
+span .fab-btn{
+  color: #17a2b8;
+  background-color: white;
+  margin-top: 20px;
+}
+
+.links{
+  font-size: 24px;
+  color: white;
+}
+
+.link-btn{
+  font-size: 20px;
+  color: white;
+  padding-left: 02px;
+  margin-right: 10px;
+}
+
+.exit{
+  font-size: 40px;
+  color: white;
+  padding-right: 100px;
+  /* padding-left: 30px; */
+}
+
+mat-label{
+  color: white;
+}
+
+/* .mat-form-field-underline .ng-tns-c36-1 .ng-star-inserted{
+  background-color: white !important;
+} */
+
+::ng-deep .mat-form-field-underline, ::ng-deep .mat-form-field-ripple {
+  background-color: white !important;
+  color: white !important
+}
+
+::ng-deep .mat-form-field-empty.mat-form-field-label {
+    color: white;
+}
+
+mat-form-field{
+  margin-top: 05px;
+  padding-right: 05px;
+  font-size: 20px;
+  /* float: right; */
+  color: white;
+}
+
+.login{
+  padding-top: 12px;
+  margin-right: 28px;
+  font-size: 40px;
+  color: white;
+}
+
+span{
+  color: white;
+  font-size: 20px;
+  padding-top: 05px;
+  padding-right: 05px;
+}
 
 .logo{
   width: 200px;
+  text-align: left !important;
+  float: left;
 }
 
 h1#title{
@@ -29,6 +104,7 @@ padding-bottom: 20px;
   width: 100%;
   background-color: 	transparent;
   position: fixed;
+  text-align: right;
 }
 
 .textos{
@@ -76,7 +152,7 @@ padding-bottom: 20px;
 
 .logo-personalizada img {
   width: 100%;
-  height: 700px;
+  height: 1000px;
 }
 
 .company-content{
@@ -104,14 +180,14 @@ mat-card-subtitle{
   font-size: 30px;
 }
 
-mat-icon{
+/* mat-icon{
   font-size: 50px;
-  /* color: #17a2b8; */
-}
+  color: #17a2b8;
+} */
 
-mat-icon:hover{
+/* mat-icon:hover{
   color: white;
-}
+} */
 
 body{
   padding: 0px;

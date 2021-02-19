@@ -1,0 +1,57 @@
+<app-menu [isSimpleMenu]="true"></app-menu>
+
+
+<section [hidden]="dataSource.data.length == 0">
+
+  <mat-form-field id="filter">
+    <mat-label>Procurar</mat-label>
+    <input matInput (keyup)="applyFilter($event)">
+  </mat-form-field>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="nmDocumento">
+        <th mat-header-cell *matHeaderCellDef> Nome </th>
+        <td mat-cell *matCellDef="let element"> {{element?.nmDocumento}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="tpDocumento">
+        <th mat-header-cell *matHeaderCellDef> Tipo de documento </th>
+        <td mat-cell *matCellDef="let element"> {{element?.tpDocumento}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="dtCriacao">
+        <th mat-header-cell *matHeaderCellDef> Data Postagem </th>
+        <td mat-cell *matCellDef="let element"> {{element?.dtCriacao}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="mesRef">
+        <th mat-header-cell *matHeaderCellDef> Referência </th>
+        <td mat-cell *matCellDef="let element"> {{element?.mesRef}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="download">
+        <th mat-header-cell *matHeaderCellDef> Download
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <mat-icon (click)="onDownload(element)" id="edit">cloud_download</mat-icon>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+  </div>
+</section>
+
+<section>
+  <mat-card style="margin-top: 20px;" class="aviso" *ngIf="dataSource.data.length == 0">
+    Não existem documentos a serem exibidos.
+  </mat-card>
+</section>
+
+<ngx-ui-loader fgsType="rectangle-bounce-party" bgsType="ball-spin-clockwise" logoUrl="../../assets/img/loader.png"
+  logoSize="150" [loaderId]="'doc-loader'">
+</ngx-ui-loader>

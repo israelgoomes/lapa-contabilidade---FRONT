@@ -1,0 +1,79 @@
+<app-menu back="solicitacoes" [isSimpleMenu]="true"></app-menu>
+
+<section>
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="true" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+        </mat-panel-title>
+        <mat-panel-description>
+
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+
+      <mat-card class="request-client">
+        <mat-card-title>
+          <h3>
+            {{solicitacao.titulo}} Solicitação: {{solicitacao.cdSolicitacao}}
+          </h3>
+        </mat-card-title>
+        <mat-divider></mat-divider>
+        <mat-card-content>
+          <h4> {{solicitacao.descricao}} </h4>
+        </mat-card-content>
+
+      </mat-card>
+
+
+
+
+      <mat-card *ngFor="let resposta of respostas" [class]="resposta.adminClient">
+        <!-- <mat-card-title>
+          {{resposta.resposta}}
+        </mat-card-title> -->
+
+        <mat-card-content>
+          {{resposta.resposta}}
+        </mat-card-content>
+        <mat-card *ngIf="resposta.path" class="admin-file">
+          <!-- <mat-card-title>
+            {{resposta.resposta}}
+          </mat-card-title> -->
+
+          <mat-card-content>
+
+            <div class="wrapper">
+              <div class="box1">
+                {{resposta.nmDocumento}}.pdf
+              </div>
+              <div class="box2">
+                <mat-icon (click)="download(resposta)" class="icon">cloud_download</mat-icon>
+              </div>
+            </div>
+
+
+            <!-- {{resposta.nmDocumento}}.pdf -->
+
+          </mat-card-content>
+        </mat-card>
+      </mat-card>
+
+      <mat-action-row>
+        <span *ngIf="solicitacao?.ativo == 'N'" class="status-inativo">Finalizada</span>
+        <form [formGroup]="respostaForm" class="form-input">
+          <input formControlName="resposta" class="text-input" type="text">
+        </form>
+        <button (click)="responder()" [disabled]="solicitacao?.ativo == 'N'" style="background-color: white;"
+          class="fab-btn" mat-mini-fab disabled aria-label="">
+          <mat-icon class="send">send</mat-icon>
+        </button>
+      </mat-action-row>
+
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+
+
+</section>

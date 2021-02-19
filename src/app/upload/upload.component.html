@@ -1,0 +1,65 @@
+<app-menu [isSimpleMenu]="true"></app-menu>
+
+<section>
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="true" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{cliente.name}}
+        </mat-panel-title>
+        <mat-panel-description>
+
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <form [formGroup]="uploadForm" class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Nome do Arquivo</mat-label>
+          <input matInput placeholder="Nome do arquivo" value="" formControlName="nmDocumento">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Data Referência</mat-label>
+          <input type="date" matInput placeholder="" value="" formControlName="mesRef">
+        </mat-form-field>
+
+
+        <!-- <mat-form-field appearance="fill">
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="mesRef">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field> -->
+
+        <mat-radio-group formControlName="tpDocumento" aria-label="Select an option">
+          <mat-radio-button value="fp">Folha de Pagamento</mat-radio-button>
+          <mat-radio-button value="im">Impostos Mensais</mat-radio-button>
+          <mat-radio-button value="rc">Relatórios Contábeis</mat-radio-button>
+          <mat-radio-button value="sl">Solicitações</mat-radio-button>
+          <mat-radio-button value="fn">Financeiros</mat-radio-button>
+        </mat-radio-group>
+      </form>
+
+
+
+      <div class="input-group">
+        <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
+          aria-label="Upload" (change)="onChange($event)" multiple>
+
+
+        <button [disabled]="!files" (click)="onUpload()" mat-icon-button
+          aria-label="Example icon button with a open in new tab icon">
+          <mat-icon>cloud_upload</mat-icon>
+        </button>
+        <!-- <button (click)="onUpload()" class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04"
+          [disabled]="!files">Upload</button> -->
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>
+
+<ngx-ui-loader fgsType="rectangle-bounce-party" bgsType="ball-spin-clockwise" logoUrl="../../assets/img/loader.png"
+  logoSize="150" [loaderId]="'upload-loader'">
+
+  <!-- 
+<button (click)="onDownload()" class="btn btn-outline-secondary" type="button"
+  id="inputGroupFileAddon04">Download</button> -->

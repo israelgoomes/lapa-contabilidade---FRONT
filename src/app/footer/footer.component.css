@@ -48,6 +48,18 @@ footer{
 
 @media screen and (max-width: 800px) {
 
+
+  footer{
+    font-family: Georgia, 'Times New Roman', Times, sans-serif;
+    color: white;
+    font-size: 20px;
+    border-top: 1px solid #808080;
+    background-color: rgb(58, 63, 63);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 25px;
+  }
+
   mat-card{
     width: 100%;
   }

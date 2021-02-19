@@ -1,0 +1,76 @@
+table {
+  width: 100%;
+}
+
+.mat-elevation-z8{
+  margin: 10px;
+}
+
+mat-form-field#filter{
+width: 99%;
+margin: 10px;
+}
+
+.create{
+margin: 10px;
+width: 100%;
+}
+
+mat-icon{
+  color: #17a2b8;
+}
+
+.my-code{
+text-align: center;
+width: 250px;
+}
+
+ng-container{
+  text-align: center;
+}
+
+td{
+  text-align: center;
+}
+
+th{
+  text-align: center;
+}
+
+th.mat-header-cell{
+  text-align: center;
+}
+
+section{
+  max-width: 1600px;
+  margin: auto;
+  margin-bottom: 10px;
+  /* margin-top: 120px; */
+  text-align: center;
+}
+
+.new-request{
+  float: right;
+  background-color: #17a2b8;
+  color: white;
+}
+
+.add-icon{
+  color: white;
+}
+
+.status-ativo{
+  border: 1px solid transparent;
+  padding: 08px 15px 08px 15px;
+  border-radius: 12px;
+  background-color: #00FA9A;
+  color: black;
+}
+
+.status-inativo{
+  border: 1px solid transparent;
+  padding: 08px 15px 08px 15px;
+  border-radius: 12px;
+  background-color: #CD5C5C;
+  color: white;
+}

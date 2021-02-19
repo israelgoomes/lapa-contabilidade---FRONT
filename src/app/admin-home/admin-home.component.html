@@ -1,0 +1,5 @@
+<app-menu></app-menu>
+
+<section class="clientes">
+  <app-admin-clientes *ngIf="clientes.length > 0" (edit)="editar($event)" [clientes]=" clientes"></app-admin-clientes>
+</section>

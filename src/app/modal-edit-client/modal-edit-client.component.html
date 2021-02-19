@@ -1,0 +1,73 @@
+<div mat-dialog-content>
+  <mat-card>
+    <mat-card-title>
+      Editar Cliente
+    </mat-card-title>
+
+    <mat-divider></mat-divider>
+
+
+    <form [formGroup]="clientForm" class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Nome *</mat-label>
+        <input value="" matInput formControlName="name">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Empresa</mat-label>
+        <input matInput formControlName="empresa">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>E-mail *</mat-label>
+        <input matInput formControlName="email">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Celular *</mat-label>
+        <input matInput formControlName="celular">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Cidade *</mat-label>
+        <input matInput formControlName="cidade">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Rua e Número *</mat-label>
+        <input matInput formControlName="ruaNumero">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Bairro *</mat-label>
+        <input matInput formControlName="bairro">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Complemento</mat-label>
+        <input matInput formControlName="complemento">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Cep *</mat-label>
+        <input matInput formControlName="cep">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>CPF/CNPJ *</mat-label>
+        <input matInput formControlName="cpfCnpj">
+      </mat-form-field>
+      <!-- <mat-form-field class="example-full-width">
+    <mat-label>Ativo</mat-label>
+    <input matInput formControlName="ativo">
+  </mat-form-field> -->
+
+    </form>
+  </mat-card>
+
+</div>
+<div>
+  <button mat-button (click)="onNoClick()">cancelar</button>
+  <button [disabled]="!clientForm.valid" style="float: right;" mat-button [mat-dialog-close]="clientForm.value"
+    cdkFocusInitial>Enviar</button>
+</div>

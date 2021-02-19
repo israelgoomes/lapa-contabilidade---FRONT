@@ -1,0 +1,21 @@
+mat-icon{
+  font-size: 40px;
+  color: #17a2b8;
+}
+
+div{
+  padding-top: 05px;
+}
+
+.subText{
+  font-size: 20px;
+}
+
+mat-icon.error {
+  font-size: 40px;
+  color: red;
+}
+
+h1.error {
+  color: red;
+}

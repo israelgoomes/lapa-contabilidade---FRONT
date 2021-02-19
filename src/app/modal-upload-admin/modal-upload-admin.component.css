@@ -1,0 +1,19 @@
+mat-form-field{
+  width: 100%;
+}
+
+textarea{
+  height: 200px
+}
+
+span{
+  font-size: 20px;
+}
+
+mat-divider{
+  margin-bottom: 20px;
+}
+
+.form-control{
+  margin-bottom: 20px;
+}

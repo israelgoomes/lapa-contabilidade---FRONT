@@ -1,0 +1,101 @@
+<app-menu back="solicitacoes-admin" [isSimpleMenu]="true"></app-menu>
+
+<section>
+
+
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="true" hideToggle>
+
+      <p class="badge" *ngIf="haveFile">
+        <mat-icon class="badge-icon" (click)="solicitacoes(element)" matBadge="1" matBadgeColor="primary">attachment
+        </mat-icon>
+      </p>
+
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+        </mat-panel-title>
+        <mat-panel-description>
+
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+
+      <mat-card class="request-client">
+        <mat-card-title>
+          <h3>
+            {{solicitacao.titulo}} Solicitação: {{solicitacao.cdSolicitacao}}
+          </h3>
+        </mat-card-title>
+        <mat-divider></mat-divider>
+        <mat-card-content>
+          <h4> {{solicitacao.descricao}} </h4>
+        </mat-card-content>
+
+      </mat-card>
+
+
+
+
+      <mat-card *ngFor="let resposta of respostas" [class]="resposta.adminClient">
+        <!-- <mat-card-title>
+          {{resposta.resposta}}
+        </mat-card-title> -->
+
+        <mat-card-content>
+          {{resposta.resposta}}
+          <mat-icon *ngIf="resposta.adminClient == 'admin'" class="delete"
+            (click)="deleteResponse(resposta.idResSolicitacao)">close</mat-icon>
+        </mat-card-content>
+        <mat-card *ngIf="resposta.path" class="admin-file">
+          <mat-card-content>
+
+            <div class="wrapper">
+              <div class="box1">
+                {{resposta.nmDocumento}}.pdf
+              </div>
+              <div class="box2">
+                <mat-icon (click)="download(resposta)" class="icon">cloud_download</mat-icon>
+              </div>
+            </div>
+
+
+            <!-- {{resposta.nmDocumento}}.pdf -->
+
+          </mat-card-content>
+        </mat-card>
+      </mat-card>
+
+      <mat-action-row>
+
+
+        <button *ngIf="solicitacao?.ativo == 'S' && !finalizada" class="finalizar" (click)="finalizar()"
+          mat-raised-button color="warn">Finalizar</button>
+
+        <span *ngIf="solicitacao?.ativo == 'N' || finalizada" class="status-inativo">Finalizada</span>
+
+
+        <form [formGroup]="respostaForm" class="form-input">
+          <input formControlName="resposta" class="text-input" type="text">
+        </form>
+
+        <button (click)=" openDialog()" [disabled]="solicitacao?.ativo == 'N' || finalizada"
+          style="background-color: white;" class="fab-btn" mat-mini-fab disabled aria-label="">
+          <mat-icon class="send">attachment</mat-icon>
+        </button>
+
+        <button (click)="responder()" [disabled]="solicitacao?.ativo == 'N' || finalizada"
+          style="background-color: white;" class="fab-btn" mat-mini-fab disabled aria-label="">
+          <mat-icon class="send">send</mat-icon>
+        </button>
+      </mat-action-row>
+
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+
+
+</section>
+
+<ngx-ui-loader fgsType="rectangle-bounce-party" bgsType="ball-spin-clockwise" logoUrl="../../assets/img/loader.png"
+  logoSize="150" maxTime="200" [loaderId]="'detalhe-admin'">

@@ -1,0 +1,84 @@
+<app-menu></app-menu>
+
+<section>
+
+  <mat-card>
+    <mat-card-title>
+      Cadastro Cliente
+    </mat-card-title>
+
+    <mat-divider></mat-divider>
+
+
+    <form [formGroup]="clientForm" class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Nome *</mat-label>
+        <input value="" matInput formControlName="name">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Empresa</mat-label>
+        <input matInput formControlName="empresa">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>E-mail *</mat-label>
+        <input matInput formControlName="email">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Celular *</mat-label>
+        <input matInput formControlName="celular">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Cidade *</mat-label>
+        <input matInput formControlName="cidade">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Rua e Número *</mat-label>
+        <input matInput formControlName="ruaNumero">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Bairro *</mat-label>
+        <input matInput formControlName="bairro">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Complemento</mat-label>
+        <input matInput formControlName="complemento">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Cep *</mat-label>
+        <input matInput formControlName="cep">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>CPF/CNPJ *</mat-label>
+        <input matInput formControlName="cpfCnpj">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Senha *</mat-label>
+        <input type="password" matInput formControlName="senha">
+      </mat-form-field>
+
+      <!-- <mat-form-field class="example-full-width">
+    <mat-label>Ativo</mat-label>
+    <input matInput formControlName="ativo">
+  </mat-form-field> -->
+
+    </form>
+
+    <mat-card-actions>
+      <button [disabled]="!clientForm.valid" (click)="salvar()" mat-raised-button>Salvar</button>
+    </mat-card-actions>
+  </mat-card>
+
+</section>
+
+<ngx-ui-loader fgsType="rectangle-bounce-party" bgsType="ball-spin-clockwise" logoUrl="../../assets/img/loader.png"
+  logoSize="150" [loaderId]="'admin-loader'">

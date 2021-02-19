@@ -1,0 +1,45 @@
+<mat-sidenav-container class="sidenav-container" *ngIf="!isSimpleMenu">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#" routerLink="/admin-home">Home</a>
+      <a mat-list-item href="#" routerLink="/cadastro-cliente">Cadastrar Cliente</a>
+      <!-- <a mat-list-item href="#">Solicitações -->
+      <!-- </a> -->
+      <a mat-list-item (click)="logout()">
+        Sair
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button>
+          <mat-icon style="float: right;" aria-label="Side nav toggle icon">exit_to_app</mat-icon>
+        </button>
+      </a>
+
+      <!-- <a mat-list-item href="#">Agentes</a>
+      <a mat-list-item href="#">Jogadores</a> -->
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+    </mat-toolbar>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+<mat-sidenav-container class="sidenav-container" *ngIf="isSimpleMenu">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true">
+    <mat-toolbar>Menu</mat-toolbar>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="voltar()">
+        <mat-icon class="back" aria-label="Side nav toggle icon">keyboard_backspace</mat-icon>
+      </button>
+    </mat-toolbar>
+    <ng-content>
+    </ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

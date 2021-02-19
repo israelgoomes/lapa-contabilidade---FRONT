@@ -1,0 +1,14 @@
+section{
+max-width: 1024px;
+margin: auto;
+text-align: center;
+}
+
+mat-panel-title{
+  font-size: 25px;
+}
+
+mat-form-field{
+  font-size: 15px;
+  padding-right: 05px;
+}

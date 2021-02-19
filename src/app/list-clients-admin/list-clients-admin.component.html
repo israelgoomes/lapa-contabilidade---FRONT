@@ -1,0 +1,87 @@
+<section>
+  <mat-accordion>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{cliente.name}}
+        </mat-panel-title>
+        <mat-panel-description>
+
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <form [formGroup]="clientForm" class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Nome</mat-label>
+          <input value="" matInput formControlName="name">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Empresa</mat-label>
+          <input matInput formControlName="empresa">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>E-mail</mat-label>
+          <input matInput formControlName="email">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Celular</mat-label>
+          <input matInput formControlName="celular">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Cidade</mat-label>
+          <input matInput formControlName="cidade">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Rua e Número</mat-label>
+          <input matInput formControlName="ruaNumero">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Bairro</mat-label>
+          <input matInput formControlName="bairro">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Complemento</mat-label>
+          <input matInput formControlName="complemento">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Cep</mat-label>
+          <input matInput formControlName="cep">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>CPF/CNPJ</mat-label>
+          <input matInput formControlName="cpfCnpj">
+        </mat-form-field>
+
+        <!-- <mat-form-field class="example-full-width">
+          <mat-label>Ativo</mat-label>
+          <input matInput formControlName="ativo">
+        </mat-form-field> -->
+
+      </form>
+      <mat-slide-toggle (change)="onChange()" [(ngModel)]="status" name="enableWifi">{{statusName}}</mat-slide-toggle>
+
+
+      <mat-action-row>
+        <button *ngIf="!edit" mat-button color="primary" (click)="upload()">Upload</button>
+        <button *ngIf="!edit" mat-button color="primary" (click)="documentos()">Documentos</button>
+        <button *ngIf="!edit" mat-button color="primary" (click)="editar()">Editar</button>
+
+        <button *ngIf="edit" mat-button color="primary" (click)="cancelarEdit()">cancelar</button>
+        <button *ngIf="edit" mat-button color="primary" (click)="salvar()">salvar</button>
+
+      </mat-action-row>
+
+      <!-- <p> Cidade: {{client.cidade}} Bairro: {{client.bairro}} CEP: {{client.cep}}</p>
+<p> Celular: {{client.celular}} E-mail: {{client.email}} CPF/CNPJ: {{client.cpfCnpj}}</p> -->
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>

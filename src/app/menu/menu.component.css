@@ -1,0 +1,12 @@
+table {
+  width: 100%;
+}
+
+mat-toolbar{
+  background-color: #17a2b8;
+  color: white;
+}
+
+.back{
+  font-size: 40px;
+}

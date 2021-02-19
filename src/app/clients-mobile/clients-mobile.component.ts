@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientsMobileComponent implements OnInit {
 
+  imagens = [
+    { path: '/assets/img/clientes/garden_santista.jpeg' },
+    { path: '/assets/img/clientes/gaucho_grill.jpeg' },
+    { path: '/assets/img/clientes/grafica_art_top.jpeg' },
+    { path: '/assets/img/clientes/obrasileiro_marmitex.jpeg' },
+    { path: '/assets/img/clientes/platform_builders.jpeg' },
+    { path: '/assets/img/clientes/sigas.jpeg', width: '90%' },
+  ]
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+
 
 }

@@ -1,0 +1,42 @@
+table {
+  width: 100%;
+}
+
+.mat-elevation-z8{
+  margin: 10px;
+}
+
+mat-form-field{
+width: 100%;
+margin: 10px;
+}
+
+.create{
+margin: 10px;
+width: 100%;
+}
+
+mat-icon{
+  color: #17a2b8;
+}
+
+.my-code{
+text-align: center;
+width: 250px;
+}
+
+ng-container{
+  text-align: center;
+}
+
+td{
+  text-align: center;
+}
+
+th{
+  text-align: center;
+}
+
+th.mat-header-cell{
+  text-align: center;
+}
