@@ -13,6 +13,7 @@ import { AuthClientService } from './servicos/auth-client-service/auth-client.se
 import { CadastroClienteComponent } from './cadastro-cliente/cadastro-cliente.component';
 import { SolicitacoesClienteComponent } from './solicitacoes-cliente/solicitacoes-cliente.component';
 import { SolicitacoesDetalheAdminComponent } from './solicitacoes-detalhe-admin/solicitacoes-detalhe-admin.component';
+import { PoliticaPrivacidadeComponent } from './politica-privacidade/politica-privacidade.component';
 
 export const ROUTES: Routes = [
   { path: '', component: HomeComponent },
@@ -38,5 +39,6 @@ export const ROUTES: Routes = [
   { path: 'solicitacao-detalhe', component: SolicitacaoDetalheComponent, canActivate: [AuthClientService] },
   { path: 'solicitacao-admin', component: SolicitacoesAdminComponent, canActivate: [AuthGuardService] },
   { path: 'solicitacao-detalhe-admin', component: SolicitacoesDetalheAdminComponent, canActivate: [AuthClientService] },
+  { path: 'politica-privacidade', component: PoliticaPrivacidadeComponent },
 
 ]

@@ -12,6 +12,10 @@ mat-card-content{
   text-align: left;
 }
 
+.delete{
+  color: red;
+}
+
 .download{
   float: right;
 }

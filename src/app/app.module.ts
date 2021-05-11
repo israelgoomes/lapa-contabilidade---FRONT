@@ -34,6 +34,8 @@ import { SolicitacoesAdminComponent } from './solicitacoes-admin/solicitacoes-ad
 import { SolicitacoesDetalheAdminComponent } from './solicitacoes-detalhe-admin/solicitacoes-detalhe-admin.component';
 import { ModalUploadAdminComponent } from './modal-upload-admin/modal-upload-admin.component';
 import { ModalEditClientComponent } from './modal-edit-client/modal-edit-client.component';
+import { ModalAplicativoComponent } from './modal-aplicativo/modal-aplicativo.component';
+import { PoliticaPrivacidadeComponent } from './politica-privacidade/politica-privacidade.component';
 
 // const configSpinner: NgxUiLoaderConfig = {
 //   bgsColor: 'red',
@@ -76,7 +78,9 @@ import { ModalEditClientComponent } from './modal-edit-client/modal-edit-client.
     SolicitacoesAdminComponent,
     SolicitacoesDetalheAdminComponent,
     ModalUploadAdminComponent,
-    ModalEditClientComponent
+    ModalEditClientComponent,
+    ModalAplicativoComponent,
+    PoliticaPrivacidadeComponent
   ],
   imports: [
     BrowserModule,

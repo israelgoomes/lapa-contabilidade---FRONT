@@ -34,8 +34,8 @@
           <mat-radio-button value="fp">Folha de Pagamento</mat-radio-button>
           <mat-radio-button value="im">Impostos Mensais</mat-radio-button>
           <mat-radio-button value="rc">Relatórios Contábeis</mat-radio-button>
-          <mat-radio-button value="sl">Solicitações</mat-radio-button>
           <mat-radio-button value="fn">Financeiros</mat-radio-button>
+          <mat-radio-button value="docCnpj">Documentos CNPJ</mat-radio-button>
         </mat-radio-group>
       </form>
 
@@ -46,10 +46,12 @@
           aria-label="Upload" (change)="onChange($event)" multiple>
 
 
-        <button [disabled]="!files" (click)="onUpload()" mat-icon-button
+        <button [disabled]="!uploadForm.valid" (click)="onUpload()" mat-icon-button
           aria-label="Example icon button with a open in new tab icon">
           <mat-icon>cloud_upload</mat-icon>
         </button>
+        <!-- [disabled]="!files" -->
+
         <!-- <button (click)="onUpload()" class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04"
           [disabled]="!files">Upload</button> -->
       </div>

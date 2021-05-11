@@ -16,4 +16,14 @@ export class DocumentService {
   listarDocumentos(idUser): Observable<any> {
     return this.http.post(`${this.url}/listar-documentos`, idUser);
   }
+
+  excluiDocumento(path, id): Observable<any> {
+
+    path = {
+      path: path,
+      idDocumento: id
+    }
+
+    return this.http.post(`${this.url}/exclusao-doc`, path);
+  }
 }

@@ -44,7 +44,8 @@
         <mat-card-content>
           {{resposta.resposta}}
           <mat-icon *ngIf="resposta.adminClient == 'admin'" class="delete"
-            (click)="deleteResponse(resposta.idResSolicitacao)">close</mat-icon>
+            (click)="deleteResponse(resposta.idResSolicitacao, resposta.idDocSolicitacao, resposta.path)">close
+          </mat-icon>
         </mat-card-content>
         <mat-card *ngIf="resposta.path" class="admin-file">
           <mat-card-content>

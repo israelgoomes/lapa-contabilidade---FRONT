@@ -1,16 +1,15 @@
 export class configHelper {
 
     public static URL = 'https://marcenarianovadesign.com.br/api';
-    public static URL2 = 'https://marcenarianovadesign.com.br/api';
+    public static URL2 = 'https://assessorialapa-backend.com.br/api';
     public static URL3 = 'http://localhost:3000/api';
+    public static onesignalUrl = 'https://onesignal.com/api/v1/notifications';
 
     public static storageKeys = {
         token: 'lapa.token',
         user: 'lapa.user',
         tokenAdmin: 'admin.token',
-        userAdmin: 'admin.user',
-        selectClient: 'ge.select.client',
-        color: 'ge.theme'
+        userAdmin: 'admin.user'
     }
 
     public static meses = [

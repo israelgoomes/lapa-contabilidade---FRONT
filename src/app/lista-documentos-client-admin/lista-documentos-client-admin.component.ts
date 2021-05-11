@@ -18,6 +18,7 @@ import { Router } from '@angular/router';
 export class ListaDocumentosClientAdminComponent implements OnInit {
 
   displayedColumns: string[] = [
+    'delete',
     'nmDocumento',
     'tpDocumento',
     'dtCriacao',
@@ -108,6 +109,7 @@ export class ListaDocumentosClientAdminComponent implements OnInit {
       link.download = `${doc.nmDocumento}.pdf`
       link.click();
 
+
       window.URL.revokeObjectURL(blob);
       link.remove();
 
@@ -116,7 +118,45 @@ export class ListaDocumentosClientAdminComponent implements OnInit {
         data: { text: 'Download', subText: `O Arquivo ${doc.nmDocumento} foi baixado com sucesso!`, icon: 'cloud_download' }
       });
 
+    }, error => {
+      this.spinnerSrvc.stopLoader('doc-loader')
+      this.dialog.open(DialogComponent, {
+        width: '450px',
+        data: { text: 'Erro!', subText: `Tente novamente, caso o erro persista entre em contato conosco.`, icon: 'cloud_download' }
+      });
     });
+  }
+
+  deleteDocument(element) {
+
+    let resposta = confirm("Deseja realmente excluir esse documento ?");
+
+    if (resposta) {
+
+      console.log(element)
+
+      this.spinnerSrvc.startLoader('doc-loader')
+      this.docSrvc.excluiDocumento(element.caminho, element.idDocumento).subscribe(response => {
+        console.log(response);
+        this.spinnerSrvc.stopLoader('doc-loader')
+        this.dialog.open(DialogComponent, {
+          width: '450px',
+          data: { text: 'Sucesso!', subText: `O Arquivo ${element.nmDocumento} foi excluido com sucesso!`, icon: 'delete_forever' }
+        });
+        this.ngOnInit();
+      }, error => {
+        this.spinnerSrvc.stopLoader('doc-loader')
+        this.dialog.open(DialogComponent, {
+          width: '450px',
+          data: { text: 'Erro', subText: `Erro ao deletar o documento.`, icon: 'delete_forever' }
+        });
+      })
+
+    } else {
+      console.log("Não")
+    }
+
+
   }
 
   applyFilter(event: Event) {

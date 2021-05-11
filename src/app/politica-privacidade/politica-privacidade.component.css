@@ -1,0 +1,34 @@
+mat-content{
+  --mat-background-color:#363636	;
+}
+
+.logo{
+margin: 0 auto;
+margin-top: 40px;
+}
+
+.back-btn{
+  margin-top: 35px;
+}
+
+.app{
+  color: #d3d3d3;
+}
+
+.politica-privacidade{
+  color: #d3d3d3;
+}
+
+
+mat-card{
+text-align: center;
+}
+
+mat-card-title{
+  text-align: center;
+color: #17a2b8;
+}
+
+h1{
+  text-align: center;
+}

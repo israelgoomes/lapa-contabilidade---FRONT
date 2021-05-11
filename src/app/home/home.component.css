@@ -1,5 +1,5 @@
 .scroll{
-  background-color: rgba(23,162,184, 0.8);
+  background-color: rgb(58, 63, 63, 0.8);
   width: 100%;
   color: white;
   height: 80px;
@@ -118,6 +118,12 @@ padding-bottom: 20px;
   text-align: center;
 
 
+}
+
+.open-app{
+  color: white;
+  font-size: 20px;
+  margin-right: 10px;
 }
 
 
@@ -468,6 +474,8 @@ mat-card{
   }
 
 }
+
+
 
 /* FLip card css */
 

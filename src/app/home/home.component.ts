@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
+import { ModalAplicativoComponent } from '../modal-aplicativo/modal-aplicativo.component';
 
 @Component({
   selector: 'app-home',
@@ -70,6 +71,15 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.detectar_mobile();
+
+    // if (this.isMobile) {
+    //   setTimeout(() => {
+    //     const dialogRef = this.dialog.open(ModalAplicativoComponent, {
+    //       width: '600px',
+    //     });
+    //   }, 1000)
+    // }
+
     if (this.loginSrvc.getToken() && this.loginSrvc.getUser()) {
       this.onUser = this.loginSrvc.getUser()[0];
       this.isLogged = true;

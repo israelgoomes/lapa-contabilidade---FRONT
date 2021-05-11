@@ -1,41 +1,40 @@
 <div [class]="classMenu">
-  <img class="logo" src="../../assets/img/logo_azul.png" />
-  <mat-icon *ngIf="!isLogged" (click)="login()" class="login" style="float: right; margin-top: 08px;">login</mat-icon>
-  <!-- <button mat-button style="float: right; margin-top: 08px;" mat-button>Entrar</button> -->
+  <img class="logo" src="../../assets/img/logo_lapa002.png" />
+  <div *ngIf="!isMobile">
+    <mat-icon *ngIf="!isLogged" (click)="login()" class="login" style="float: right; margin-top: 08px;">login</mat-icon>
 
-  <mat-form-field *ngIf="!isLogged" class="example-full-width">
-    <mat-label>Login</mat-label>
-    <input [(ngModel)]="cpfCnpj" name="cpf" type="text" matInput>
-  </mat-form-field>
+    <mat-form-field *ngIf="!isLogged" class="example-full-width">
+      <mat-label>Login</mat-label>
+      <input [(ngModel)]="cpfCnpj" name="cpf" type="text" matInput>
+    </mat-form-field>
 
-  <mat-form-field *ngIf="!isLogged" class="example-full-width">
-    <mat-label>Senha</mat-label>
-    <input [(ngModel)]="senha" name="senha" type="password" matInput>
-  </mat-form-field>
+    <mat-form-field *ngIf="!isLogged" class="example-full-width">
+      <mat-label>Senha</mat-label>
+      <input [(ngModel)]="senha" name="senha" type="password" matInput>
+    </mat-form-field>
 
-  <span *ngIf="isLogged" class="example-full-width">
-    Olá, {{onUser.nome}}
-  </span>
+    <span *ngIf="isLogged" class="example-full-width">
+      Olá, {{onUser.nome}}
+    </span>
 
-  <span *ngIf="isLogged">
-    <button class="fab-btn" mat-mini-fab disabled aria-label="">
-      <mat-icon>folder_open</mat-icon>
-    </button> <a class="link" (click)="documentos()">Documentos</a>
-  </span>
-  <span *ngIf="isLogged">
-    <button class="fab-btn" mat-mini-fab disabled aria-label="">
-      <mat-icon>list_alt</mat-icon>
-    </button> <a (click)="solicitacoes()" class="link">Solicitações</a>
-  </span>
+    <span *ngIf="isLogged">
+      <button class="fab-btn" mat-mini-fab disabled aria-label="">
+        <mat-icon>folder_open</mat-icon>
+      </button> <a class="link" (click)="documentos()">Documentos</a>
+    </span>
+    <span *ngIf="isLogged">
+      <button class="fab-btn" mat-mini-fab disabled aria-label="">
+        <mat-icon>list_alt</mat-icon>
+      </button> <a (click)="solicitacoes()" class="link">Solicitações</a>
+    </span>
 
-  <span *ngIf="isLogged">
-    <button alt="SAIR" mat-icon-button disabled aria-label="Sair">
-      <mat-icon (click)="sair()" class="exit" alt="SAIR">exit_to_app</mat-icon>
-    </button><a class="link">Sair</a>
-  </span>
-  <!-- <mat-icon class="links">folder_open</mat-icon>
-  <button class="link-btn" mat-button>Basic</button> -->
+    <span *ngIf="isLogged">
+      <button alt="SAIR" mat-icon-button disabled aria-label="Sair">
+        <mat-icon (click)="sair()" class="exit" alt="SAIR">exit_to_app</mat-icon>
+      </button><a class="link">Sair</a>
+    </span>
 
+  </div>
 
 </div>
 <section class="logo-personalizada">

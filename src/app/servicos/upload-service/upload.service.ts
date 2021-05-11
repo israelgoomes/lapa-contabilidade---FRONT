@@ -24,6 +24,7 @@ export class UploadService {
     // const request = new HttpRequest('POST', this.url, formData)
     // return this.http.request(request);
     const header = this.createHeader();
+
     return this.http2.post(this.url, formData, { headers: header });
   }
 
@@ -38,7 +39,7 @@ export class UploadService {
     // const request = new HttpRequest('POST', this.url, formData)
     // return this.http.request(request);
     const header = this.createHeader();
-    return this.http2.post('http://localhost:3000/api/solicitacoes/upload', formData, { headers: header });
+    return this.http2.post(`${configHelper.URL3}/solicitacoes/upload`, formData, { headers: header });
   }
 
   download(path): Observable<any> {

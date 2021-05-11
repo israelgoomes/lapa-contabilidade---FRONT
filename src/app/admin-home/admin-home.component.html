@@ -3,3 +3,9 @@
 <section class="clientes">
   <app-admin-clientes *ngIf="clientes.length > 0" (edit)="editar($event)" [clientes]=" clientes"></app-admin-clientes>
 </section>
+
+<section *ngIf="clientes.length == 0" class="clientes">
+  <mat-card>
+    <h1>Não existem clientes cadastrados.</h1>
+  </mat-card>
+</section>

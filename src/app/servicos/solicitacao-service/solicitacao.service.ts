@@ -36,10 +36,12 @@ export class SolicitacaoService {
     return this.http.post(`${this.url}/create`, data)
   }
 
-  deletarResposta(idResSolicitacao): Observable<any> {
+  deletarResposta(idResSolicitacao, idDocSolicitacao, path): Observable<any> {
 
     let id = {
-      idResSolicitacao: idResSolicitacao
+      idResSolicitacao: idResSolicitacao,
+      idDocSolicitacao: idDocSolicitacao,
+      path: path
     }
     return this.http.post(`${this.url}/delete-response`, id);
 

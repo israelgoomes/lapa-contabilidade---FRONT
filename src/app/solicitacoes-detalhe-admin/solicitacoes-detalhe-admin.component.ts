@@ -7,6 +7,7 @@ import { ModalUploadAdminComponent } from '../modal-upload-admin/modal-upload-ad
 import { MatDialog } from '@angular/material/dialog';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { DialogComponent } from '../dialog/dialog.component';
+import { OnesignalService } from '../servicos/onesignal-service/onesignal.service';
 
 @Component({
   selector: 'app-solicitacoes-detalhe-admin',
@@ -16,12 +17,20 @@ import { DialogComponent } from '../dialog/dialog.component';
 export class SolicitacoesDetalheAdminComponent implements OnInit {
   idResSolicitacao;
   cliente;
+  solicitacao;
+  respostas;
+  respostaForm: FormGroup
+  response;
+  file;
+  haveFile;
+  finalizada: boolean = false;
   constructor(private router: Router,
     private solicitacaoSrvc: SolicitacaoService,
     private fb: FormBuilder,
     private uploadSrvc: UploadService,
     public dialog: MatDialog,
-    private spinnerSrvc: NgxUiLoaderService
+    private spinnerSrvc: NgxUiLoaderService,
+    private oneSignalSrvc: OnesignalService
   ) {
     if (!history.state.data || !history.state.cliente) {
       this.router.navigate(['/admin-home'])
@@ -39,13 +48,7 @@ export class SolicitacoesDetalheAdminComponent implements OnInit {
 
 
   }
-  solicitacao;
-  respostas;
-  respostaForm: FormGroup
-  response;
-  file;
-  haveFile;
-  finalizada: boolean = false;
+
   ngOnInit(): void {
     if (this.solicitacao.ativo == 'N') {
       this.respostaForm.disable();
@@ -60,13 +63,14 @@ export class SolicitacoesDetalheAdminComponent implements OnInit {
     if (!this.file) {
       this.solicitacaoSrvc.responder(this.respostaForm.value).subscribe(response => {
         // this.idResSolicitacao = response.idResponse
+        this.sendOnesignal();
         this.respostaForm.get('resposta').reset()
         this.ngOnInit();
       });
     } else {
       this.solicitacaoSrvc.responder(this.respostaForm.value).subscribe(response => {
+        this.sendOnesignal();
         this.idResSolicitacao = response.idResponse
-
         let document = {
           tpDocumento: this.file.tpDocumento,
           idResSolicitacao: response.idResponse,
@@ -81,6 +85,22 @@ export class SolicitacoesDetalheAdminComponent implements OnInit {
         this.respostaForm.get('resposta').reset()
       });
     }
+  }
+
+  sendOnesignal() {
+    this.oneSignalSrvc.getOnesignal(this.cliente.idUser).subscribe(v => {
+      let ids = []
+      v.forEach(i => {
+        ids.push(i.userId);
+      });
+      this.oneSignalSrvc.postOnesignalUser(ids, `Nova resposta para sua solicitação ${this.solicitacao.cdSolicitacao}.`).subscribe(x => {
+        this.spinnerSrvc.stopLoader('upload-loader');
+      }, errorr => {
+        this.spinnerSrvc.stopLoader('upload-loader');
+      })
+    }, error => {
+      this.spinnerSrvc.stopLoader('upload-loader');
+    })
   }
 
   download(resposta) {
@@ -120,8 +140,8 @@ export class SolicitacoesDetalheAdminComponent implements OnInit {
   }
 
 
-  deleteResponse(id) {
-    this.solicitacaoSrvc.deletarResposta(id).subscribe(response => {
+  deleteResponse(id, idDocSolicitacao, path) {
+    this.solicitacaoSrvc.deletarResposta(id, idDocSolicitacao, path).subscribe(response => {
       this.ngOnInit();
     })
   }

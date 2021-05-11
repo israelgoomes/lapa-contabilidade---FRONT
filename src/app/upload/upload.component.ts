@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UploadService } from '../servicos/upload-service/upload.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
+import { OnesignalService } from '../servicos/onesignal-service/onesignal.service';
 
 @Component({
   selector: 'app-upload',
@@ -21,7 +22,8 @@ export class UploadComponent implements OnInit {
     private uploadSrvc: UploadService,
     private fb: FormBuilder,
     private spinnerSrvc: NgxUiLoaderService,
-    public dialog: MatDialog) {
+    public dialog: MatDialog,
+    private oneSignalSrvc: OnesignalService) {
 
     this.cliente = history.state.cliente;
     if (!this.cliente) {
@@ -39,12 +41,11 @@ export class UploadComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('History', history.state.cliente)
     this.cliente = history.state.cliente;
     this.uploadForm = this.fb.group({
-      tpDocumento: '',
-      mesRef: '',
-      nmDocumento: '',
+      tpDocumento: ['', Validators.required],
+      mesRef: ['', Validators.required],
+      nmDocumento: ['', Validators.required],
       idUser: this.cliente.idUser
     })
   }
@@ -65,6 +66,23 @@ export class UploadComponent implements OnInit {
       this.spinnerSrvc.startLoader('upload-loader');
 
       this.uploadSrvc.upload(this.files, data).subscribe(response => {
+        this.oneSignalSrvc.getOnesignal(this.cliente.idUser).subscribe(v => {
+          let ids = []
+          v.forEach(i => {
+            ids.push(i.userId);
+          });
+
+
+          this.oneSignalSrvc.postOnesignalUser(ids, `${data.nmDocumento} foi adicionado.`, 'Novo Documento').subscribe(x => {
+            this.spinnerSrvc.stopLoader('upload-loader');
+          }, errorr => {
+            this.spinnerSrvc.stopLoader('upload-loader');
+          })
+        }, error => {
+          this.spinnerSrvc.stopLoader('upload-loader');
+        })
+
+
         this.uploadForm.reset();
         let input: any = document.querySelector('.form-control')
         input.value = '';

@@ -12,8 +12,9 @@ export class DialogComponent implements OnInit {
 
   constructor(public dialog: MatDialog, public dialogRef: MatDialogRef<DialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
+
   ngOnInit(): void {
-    throw new Error("Method not implemented.");
+    console.log("Method not implemented.");
   }
 
   onNoClick(): void {

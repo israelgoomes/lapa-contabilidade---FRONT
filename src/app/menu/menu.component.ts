@@ -10,9 +10,13 @@ import { Router } from '@angular/router';
 export class MenuComponent implements OnInit {
   @Input() isSimpleMenu: boolean;
   @Input() back?: string;
+  icon: boolean = true;
   constructor(private loginSrvc: LoginAdminService, private router: Router) { }
 
   ngOnInit(): void {
+    if (this.back == 'false') {
+      this.icon = false;
+    }
   }
 
   logout() {
@@ -27,6 +31,9 @@ export class MenuComponent implements OnInit {
     } else {
       this.router.navigate(['/admin-home'])
     }
+
+
+
   }
 
 }

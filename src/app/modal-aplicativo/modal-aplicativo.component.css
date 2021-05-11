@@ -1,0 +1,28 @@
+.download{
+  width: 49%;
+  background-color: rgb(58, 63, 63);
+  color: white;
+  margin-right: 01px;
+}
+
+.open{
+  width: 100%;
+  background-color: rgb(58, 63, 63);
+  color: white;
+}
+
+img{
+  margin-right: 10px;
+}
+
+mat-divider{
+  margin-bottom: 20px;
+}
+h5{
+  margin-top: 20px;
+}
+
+/* body{
+  background-color: black;
+  padding: 0px 0px 0px 0px
+} */
